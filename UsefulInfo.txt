@@ -1,0 +1,123 @@
+==== Git Related
+
+GIT_SSL_NO_VERIFY=true git clone https://premanshum@github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web
+git -c http.sslverify=false pull origin master
+git -c http.sslverify=false push origin code-workflow
+git remote -v
+
+GIT_SSL_NO_VERIFY=true git clone https://github.com/premanshum/sfhSideKick.git
+
+manjula.c@shell.com
+Lastdays%1234
+
+https://github.com/deborahk
+
+Command	                    Purpose	
+Status	                    To see all the changes which ae added, deleted or updated	
+Add .	                    To add all the files which are untracked. (.) is for all the files, use individual file name in cases	
+Commit -m	                To commit with a message	
+Branch	                    To see how many branches we have	
+Checkout -b <branchName>	Creates a new branch called <branchName>	
+Checkout <branchName>	    Switches between branches	
+Push origin <branchName>	Pushes the changes to branch named <branchName>	
+Diff	                    To see the differences between branches	
+Reset 	                    To undo the staging	
+Reset HEAD~1	            To undo the last commit	
+Clone	                    To bring a repo that is hosted elsewhere, into a folder on local machine	
+Pull	                    Download changes from remote repo to local machine	
+Merge	                    To merge two branches	
+Diff	                    To compare two branches	
+
+
+1. Generate a new SSH key:
+	ssh-keygen -t ed25519 -C "your_email@example.com"
+    passPhrase: prem
+	
+2. Add SSH key to ssh-Agent
+	eval `ssh-agent -s`
+	ssh-add ~/.ssh/id_ed25519
+	
+3. Copy the SSH key
+    clip < ~/.ssh/id_ed25519.pub
+    (Result in subsequent window)
+
+4. sd
+
+
+
+==== Useful links
+
+http://www.luckenuik.net/hosting-your-aspnet-core-mvc-apis-inside-azure-functions/
+https://blog.kabrt.cz/posts/2018-11-serverless-asp-net-mvc
+https://reynders.co/move-asp-net-core-to-azure-functions-in-4-steps/
+https://blog.wille-zone.de/post/serverless-webapi-hosting-aspnetcore-webapi-in-azure-functions/
+https://github.com/BorisWilhelms/serverlesswebapi/tree/master/src/AspNetCoreProxy
+https://github.com/Azure/Azure-Functions/issues/1114 
+https://github.com/thinktecture/serverless-microservices/blob/master/identity-service-dotnet/Functions/Host.cs#L32
+https://www.wintellect.com/host-website-azure-functions-node-js-part-1/
+https://dev.azure.com/PremanshuMukherji0649/Nexus360
+
+
+=== Soft skills
+
+learn when to react and response
+listen patiently before responding
+verify the facts before responding
+accept mistakes positively
+mellow down the tone
+prioritize work item
+avoid getting into conflict situation
+behave professionally, rather than personally
+respect the team's decision
+consult peers and seniors before taking any decision
+
+
+Architecture 
+
+1. Understanding Big picture
+
+2. As-Is & To-Be scope:
+	1. As is component
+	2. As is market
+	3. As is integration
+	4. As is Authentication
+	5. As is Authorization/Security
+
+3. Business Architecture
+	- Solution architecture approach
+	- Application architecture
+	- App component arch.
+	- Interfaces
+
+4. Network Diagrams (ports, ip , protocols, OS, antivirus etc. ...)
+
+5. Security Architecture
+
+6. Coordination with Security Architects
+
+7. Coordination, with Integration Architects
+
+8. Coordination with Business Stakeholders
+
+9. Coordination with Segment Architects
+
+10. Coordination with Service Operation stakeholders
+
+11. Coordination with Technology Architects
+
+12. Approval from Review boards
+
+13. Guiding Implementation / Delivery/ Project team
+
+
+=== Architectural Checklist
+
+Source endpoints
+Source credential           User/System
+Source data mode            File/API
+Source Environment          Test/Prod
+Source Firewall policy
+Source password policy      Expiring/No expiring
+Source connection details
+
+
