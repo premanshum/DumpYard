@@ -40,22 +40,22 @@
             with:
               service-list: "all-services.txt"
               workflow-type: iac
-         - name: "Create possibly missing Code workflow"
-           uses: "./src/shared/github-actions/create-workflow"
-           with:
-             service-list: "all-services.txt"
-             workflow-type: code
-      - name: Commit changes
-        run: |
-          git config --global user.name "Admiral Automation"
-          git config --global user.email admiral-automation@maersk.com
-          have_changes=`git status | grep '.github/workflows'` || {
-            echo "No workflow file created."
-            exit
-          }
-          echo "$have_changes"
-          git pull
-          git add .github/workflows
-          git commit -m "Add missing / update workflow files"
-          git branch
-          git push
+          - name: "Create possibly missing Code workflow"
+            uses: "./src/shared/github-actions/create-workflow"
+            with:
+              service-list: "all-services.txt"
+              workflow-type: code
+          - name: Commit changes
+            run: |
+              git config --global user.name "Admiral Automation"
+              git config --global user.email admiral-automation@maersk.com
+              have_changes=`git status | grep '.github/workflows'` || {
+                echo "No workflow file created."
+                exit
+              }
+              echo "$have_changes"
+              git pull
+              git add .github/workflows
+              git commit -m "Add missing / update workflow files"
+              git branch
+              git push
