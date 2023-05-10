@@ -1,6 +1,4 @@
-```yaml{:copy}
-name: 'Link Checker: All English'
-```
+
 
 ```yaml {:copy}
     name: Create or Update service workflows
@@ -76,8 +74,8 @@ name: 'Link Checker: All English'
 <tr>
 <td>
 
-```yaml {:copy}
-name: 'Link Checker: All English'
+```yaml
+name: 'Create or Update service workflows'
 ```
 </td>
 <td>
@@ -88,32 +86,33 @@ The name of the workflow as it will appear in the "Actions" tab of the GitHub re
     
 <tr>
 <td>
-```yaml{:copy}
+    
+```yaml
 concurrency: service-workflow-cu_${{ github.ref }}
 ```
-{% endraw %}
 </td>
 <td>
+    
 Creates a concurrency group for specific events. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
     
 <tr>
 <td>
-
-```yaml{:copy}
+    
+```yaml
 on:
 ```
 </td>
 <td>
-
+    
 The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml 
   workflow_dispatch:
 ```
 </td>
@@ -125,15 +124,18 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml
   push:
-    branches:
-      - main
+    # Service workflows should be updated / created before PRs are merged
+    branches-ignore: [dev, test, preprod, main]
+    paths-ignore:
+      - ".github/workflows/**"
+      - "!.github/workflows/service-workflow-cu.yml"
 ```
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch called `main`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+Add the `push` event, so that the workflow DOES NOT runs when a commit is pushed to a branches called `dev, test, preprod and main`. Even For feature branches, ignore the changes committed to any files in '.github/workflows' path EXCEPT 'service-workflow-cu.yml' file. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
