@@ -93,7 +93,7 @@ concurrency: service-workflow-cu_${{ github.ref }}
 </td>
 <td>
     
-Creates a concurrency group for specific events. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
+Creates a concurrency group for specific events. For more information, see "concurrency(/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
     
@@ -106,7 +106,7 @@ on:
 </td>
 <td>
     
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "Triggering a workflow(/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
@@ -141,13 +141,18 @@ Add the `push` event, so that the workflow DOES NOT runs when a commit is pushed
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml
   pull_request:
+    # Nothing should be committed directly to the master branch
+    branches: [dev, test, preprod]
+    paths-ignore:
+      - ".github/workflows/**"
+      - "!.github/workflows/service-workflow-cu.yml"
 ```
 </td>
 <td>
 
-Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated on the branches 'dev', 'test' or 'preprod', except when the changes are made to any file in the path '.github/workflows/'. However, the workflow is triggered if there is a changes in the file '.github/workflows/service-workflow-cu.yml'. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 
