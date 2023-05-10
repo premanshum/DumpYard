@@ -8,5 +8,5 @@
         #Service workflows should be updated / created before PRs are merged
         branches-ignore: [dev, test, preprod, main]
         paths-ignore:
-	  - ".github/workflows/**"
-	  - "!.github/workflows/service-workflow-cu.yml"
+          - ".github/workflows/**"
+          - "!.github/workflows/service-workflow-cu.yml"
