@@ -1,5 +1,5 @@
 **YAML**
-
+``yaml``
     name: Create or Update service workflows
     concurrency: service-workflow-cu_${{ github.ref }}
     on:
