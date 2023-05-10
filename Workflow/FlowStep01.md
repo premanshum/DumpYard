@@ -1,6 +1,8 @@
+```yaml{:copy}
+name: 'Link Checker: All English'
+```
 
-
-```yaml
+```yaml {:copy}
     name: Create or Update service workflows
     concurrency: service-workflow-cu_${{ github.ref }}
     on:
@@ -74,7 +76,7 @@
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml {:copy}
 name: 'Link Checker: All English'
 ```
 </td>
