@@ -10,3 +10,9 @@
         paths-ignore:
           - ".github/workflows/**"
           - "!.github/workflows/service-workflow-cu.yml"
+      pull_request:
+        # Nothing should be committed directly to the master branch
+        branches: [dev, test, preprod]
+        paths-ignore:
+          - ".github/workflows/**"
+          - "!.github/workflows/service-workflow-cu.yml"
