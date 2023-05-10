@@ -66,8 +66,8 @@
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th scope="col" style="width:60%"><b>Code</b></th>
-    <th scope="col" style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:30%"><b>Code</b></th>
+    <th scope="col" style="width:70%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -80,9 +80,22 @@ name: 'Link Checker: All English'
 </td>
 <td>
 
-{% data reusables.actions.explanation-name-key %}
+The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
 </td>
 </tr>
+    
+<tr>
+<td>
+```yaml{:copy}
+concurrency: service-workflow-cu_${{ github.ref }}
+```
+{% endraw %}
+</td>
+<td>
+Creates a concurrency group for specific events. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
+</td>
+</tr>
+    
 <tr>
 <td>
 
@@ -145,21 +158,6 @@ permissions:
 <td>
 
 Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
-</td>
-</tr>
-<tr>
-<td>
-
-{% raw %}
-```yaml{:copy}
-concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-```
-{% endraw %}
-</td>
-<td>
-
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
