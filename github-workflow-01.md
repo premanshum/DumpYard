@@ -29,22 +29,22 @@
                 echo "::set-output name=BRANCH::${{ github.ref }}"
               }
             shell: pwsh
-      - uses: actions/checkout@v2
-        with:
-          token: "${{ secrets.WORKFLOW_TOKEN }}"
-          ref: "${{ steps.get-branch.outputs.BRANCH }}"
-      - name: "Add all services into the ${{ matrix.name }} list"
-        run: ls "src/services" > "all-services.txt"
-      - name: "Create possibly missing IaC workflow"
-        uses: "./src/shared/github-actions/create-workflow"
-        with:
-          service-list: "all-services.txt"
-          workflow-type: iac
-      - name: "Create possibly missing Code workflow"
-        uses: "./src/shared/github-actions/create-workflow"
-        with:
-          service-list: "all-services.txt"
-          workflow-type: code
+          - uses: actions/checkout@v2
+            with:
+              token: "${{ secrets.WORKFLOW_TOKEN }}"
+              ref: "${{ steps.get-branch.outputs.BRANCH }}"
+          - name: "Add all services into the ${{ matrix.name }} list"
+            run: ls "src/services" > "all-services.txt"
+          - name: "Create possibly missing IaC workflow"
+            uses: "./src/shared/github-actions/create-workflow"
+            with:
+              service-list: "all-services.txt"
+              workflow-type: iac
+         - name: "Create possibly missing Code workflow"
+           uses: "./src/shared/github-actions/create-workflow"
+           with:
+             service-list: "all-services.txt"
+             workflow-type: code
       - name: Commit changes
         run: |
           git config --global user.name "Admiral Automation"
