@@ -1,0 +1,14 @@
+Date: 31-Aug-2023
+  Priya: 5500
+  Prem: 5000
+  Mili: 5000 (Gift)
+
+Date: 1-Sep-2023
+  Priya: 12000
+  Prem: 5500
+  Mili-708: 5000
+  Mili-762: 9500
+  Jaya: 500
+
+
+  
